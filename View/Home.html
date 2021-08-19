@@ -13,6 +13,7 @@ body {font-family: "Lato", sans-serif;}
   background-color: #f1f1f1;
   width: 20%;
   height: 80vh;
+  overflow:scroll;
 }
 
     /* Style the tab */
@@ -92,17 +93,33 @@ body {font-family: "Lato", sans-serif;}
 </head>
 <body>
 
-<h2>Vertical Tabs</h2>
-<p>Click on the buttons inside the tabbed menu:</p>
-
+<h2>Com Stack Config</h2>
+<!--
+  <p>Click on the buttons</p>
+-->
 
 <div class="tab">
-  <button class="Modulelinks" onclick="openModule(event, 'London')" id="defaultOpen">London</button>
-  <button class="Modulelinks" onclick="openModule(event, 'Paris')">Paris</button>
-  <button class="Modulelinks" onclick="openModule(event, 'Tokyo')">Tokyo</button>
+  <button class="Modulelinks" onclick="openModule(event, 'CanIf')" id="defaultOpen">CanIf</button>
+  <button class="Modulelinks" onclick="openModule(event, 'Com')">Com</button>
+  <button class="Modulelinks" onclick="openModule(event, 'PduR')">PduR</button>
+  <button class="Modulelinks" onclick="openModule(event, 'CanIf')" id="defaultOpen">CanIf</button>
+  <button class="Modulelinks" onclick="openModule(event, 'Com')">Com</button>
+  <button class="Modulelinks" onclick="openModule(event, 'PduR')">PduR</button>
+  <button class="Modulelinks" onclick="openModule(event, 'CanIf')" id="defaultOpen">CanIf</button>
+  <button class="Modulelinks" onclick="openModule(event, 'Com')">Com</button>
+  <button class="Modulelinks" onclick="openModule(event, 'PduR')">PduR</button>
+  <button class="Modulelinks" onclick="openModule(event, 'CanIf')" id="defaultOpen">CanIf</button>
+  <button class="Modulelinks" onclick="openModule(event, 'Com')">Com</button>
+  <button class="Modulelinks" onclick="openModule(event, 'PduR')">PduR</button>
+  <button class="Modulelinks" onclick="openModule(event, 'CanIf')" id="defaultOpen">CanIf</button>
+  <button class="Modulelinks" onclick="openModule(event, 'Com')">Com</button>
+  <button class="Modulelinks" onclick="openModule(event, 'PduR')">PduR</button>
+  <button class="Modulelinks" onclick="openModule(event, 'CanIf')" id="defaultOpen">CanIf</button>
+  <button class="Modulelinks" onclick="openModule(event, 'Com')">Com</button>
+  <button class="Modulelinks" onclick="openModule(event, 'PduR')">PduR</button>
 </div>
 
-<div id="London" class="tabcontent">
+<div id="CanIf" class="tabcontent">
   
     <div class="tab_h">
         <button class="Configlinks" onclick="openConfig(event, 'General')" id="GeneralOpen">General</button>
@@ -113,8 +130,8 @@ body {font-family: "Lato", sans-serif;}
     
     <div id="General" class="tabcontent_h">
       <form >
-  	    <label for="fname" onclick="showInfo(event, 'display1')">Config Variant:</label>
-  	    <input type="text" id="fname" name="fname"><br><br>
+  	    <br><label for="fname" onclick="showInfo(event, 'display1')">Config Variant:</label>
+  	    <input type="text" id="fname" name="fname"><br>
       </form>
       <p> CanGeneral </p>
       <form >
@@ -139,15 +156,18 @@ body {font-family: "Lato", sans-serif;}
 
 </div>
 
-<div id="Paris" class="tabcontent">
+<div id="Com" class="tabcontent">
   <h3>Paris</h3>
   <p>Paris is the capital of France.</p> 
 </div>
 
-<div id="Tokyo" class="tabcontent">
+<div id="PduR" class="tabcontent">
   <h3>Tokyo</h3>
   <p>Tokyo is the capital of Japan.</p>
 </div>
+
+
+<label style="font-weight: bold;display:inline-block;margin: 5px;font-size: 20px;">Descriptions:</label>
 
 <form>
 
@@ -155,14 +175,14 @@ body {font-family: "Lato", sans-serif;}
     .poz
     {
         position:absolute;
-        bottom:24px;
-        right:10px;
+        margin: 5px;
         height: 20vh;
-        width: 78%;
+        width: 79%;
+        font-size: 18px;
     }
     </style>
     <textarea id= "descriptionTextArea" readonly class="poz">
-        This is where the user can enter text...
+        This is where you can find discription...
     </textarea>
 </form>
 
@@ -201,15 +221,39 @@ document.getElementById("defaultOpen").click();
 document.getElementById("GeneralOpen").click();
 
 function showInfo(evt, key) {
-     var str = new String("Demo Text");
+    //  var str = new String("Demo Text");
         
 
         document.getElementById('descriptionTextArea').innerHTML
-            = str.bold() + " "+ dict[key];
+            // = str.bold() + " "+ dict[key];
+            = dict[key];
     }
-var dict = { "display1": "Chris",
-                "display2": "hitu",
-                    "display3": "some value"
+var dict = { "display1": 'A rather long string of English text, an error message ' +
+               'actually that just keeps going and going -- an error ' +
+               'message to make the Energizer bunny blush (right through ' +
+               'those Schwarzenegger shades)! Where was I? Oh yes, ' +
+               'you\'ve got an error and all the extraneous whitespace is ' +
+               'just gravy.  Have a nice day.'+
+               'A rather long string of English text, an error message ' +
+               'actually that just keeps going and going -- an error ' +
+               'message to make the Energizer bunny blush (right through ' +
+               'those Schwarzenegger shades)! Where was I? Oh yes, ' +
+               'you\'ve got an error and all the extraneous whitespace is ' +
+               'just gravy.  Have a nice day.'+
+               'A rather long string of English text, an error message ' +
+               'actually that just keeps going and going -- an error ' +
+               'message to make the Energizer bunny blush (right through ' +
+               'those Schwarzenegger shades)! Where was I? Oh yes, ' +
+               'you\'ve got an error and all the extraneous whitespace is ' +
+               'just gravy.  Have a nice day.'+
+               'A rather long string of English text, an error message ' +
+               'actually that just keeps going and going -- an error ' +
+               'message to make the Energizer bunny blush (right through ' +
+               'those Schwarzenegger shades)! Where was I? Oh yes, ' +
+               'you\'ve got an error and all the extraneous whitespace is ' +
+               'just gravy.  Have a nice day.',
+               "display2": "hitu",
+               "display3": "some value"
             };
 </script>
    
