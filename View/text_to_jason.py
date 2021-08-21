@@ -5,7 +5,7 @@ import pandas as pd
 import xlrd
 from collections import OrderedDict
 import json
-
+data_list = []
 L = ["Geeks\n", "for\n", "Geeks\n"]
  
 # writing to file
@@ -61,3 +61,18 @@ df = pd.DataFrame(thisdict.items(),columns=['Date', 'DateValue'])
 #print (df)
 
 df.to_excel('dict1.xlsx')
+
+dictionary={k: v for k, v in dictionary.items() if v}
+print(dictionary)
+
+for dict in dictionary:
+     data = OrderedDict()
+     #print(data)
+     #row_values = sh.row_values(rownum)
+     data['Name'] = dict
+     data['Description'] = dictionary[dict]
+     data_list.append(data)
+print(data_list)
+with open("g.json", "w", encoding="utf-8") as writeJsonfile:
+      json.dump(data_list, writeJsonfile, indent=4,default=str)
+
