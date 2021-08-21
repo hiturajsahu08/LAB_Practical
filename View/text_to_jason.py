@@ -73,6 +73,6 @@ for dict in dictionary:
      data['Description'] = dictionary[dict]
      data_list.append(data)
 print(data_list)
-with open("g.json", "w", encoding="utf-8") as writeJsonfile:
+with open("h.json", "w", encoding="utf-8") as writeJsonfile:
       json.dump(data_list, writeJsonfile, indent=4,default=str)
 
