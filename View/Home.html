@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {box-sizing: border-box}
@@ -133,12 +134,12 @@ body {font-family: "Lato", sans-serif;}
     
     <div id="General" class="tabcontent_h">
       <form >
-  	    <br><label for="fname" onclick="showInfo(event, 'display1')">Config Variant:</label>
+  	    <br><label for="fname" onclick="showInfo(event, 'Development Error Detection   ')">Development Error Detection:</label>
   	    <input type="text" id="fname" name="fname"><br>
       </form>
       <p> CanGeneral </p>
       <form >
-  	    <label for="CanNmae" onclick="showInfo(event, 'display2')">Name:</label>
+  	    <label for="CanNmae" onclick="showInfo(event, 'Can Multiple CanIf Cbk    ')">Can Multiple CanIf Cbk:</label>
   	    <input type="text" id="fname" name="CanName"><br><br>
       </form>
       <form >
@@ -190,6 +191,17 @@ body {font-family: "Lato", sans-serif;}
 </form>
 
 <script>
+// const promise=0;
+var jsdata="";
+function readdata(){
+
+    fetch("h.json")
+        .then(response => response.json())
+        .then(data => jsdata = data)
+
+}
+//const jasondata= require('./h.json');
+
 function openModule(evt, ModuleName) {
   var i, tabcontent, Modulelinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -222,14 +234,64 @@ function openConfig(evt, config) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 document.getElementById("GeneralOpen").click();
+readdata();
 
+function findinfo(key)
+{
+  var ret
+  for(i=0; i<jasondata.length; i++)
+  {
+    if (jasondata[i].Name == key)
+    {
+      ret= jasondata[i].Description;
+      break;
+    }
+  }
+  return ret
+}
+var ret="fuck";
 function showInfo(evt, key) {
     //  var str = new String("Demo Text");
         
 
+        // document.getElementById('descriptionTextArea').innerHTML
+        //     // = str.bold() + " "+ dict[key];
+        //     = dict[key];
+
+//        fetch('./h.json')
+        // const jasondata= require('./h.json');
+        // var jasondata = './h.json';
+        // ES5
+        // require([jasondata], function(result){
+        //     jasondata = result;
+        // });
+        // let promise=fetch("h.json");
+        // promise.then(response => response.json())
+        // promise.then(data =>{
+                // console.log(data[1].Name);
+                for(i=0; i<jsdata.length; i++)
+                {
+                    console.log(jsdata[i].Name);
+                    if (jsdata[i].Name == key)
+                    {
+                        console.log(jsdata[i].Description);
+                        ret= jsdata[i].Description;
+                        console.log(ret);
+                        
+                        break;
+                    }
+                }
+                // return ret;
+            // })
+            // .then(data => ret = data)
+            // promise.then(() => console.log(ret))
+        console.log(String(ret));
         document.getElementById('descriptionTextArea').innerHTML
             // = str.bold() + " "+ dict[key];
-            = dict[key];
+            // = findinfo(key);
+
+            = String(ret);
+        console.log(String(ret));
     }
 var dict = { "display1": 'A rather long string of English text, an error message ' +
                'actually that just keeps going and going -- an error ' +

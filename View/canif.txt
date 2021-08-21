@@ -1,0 +1,80 @@
+Config Variant :
+No description available
+
+Name  :
+Short-Name: CanIfDispatchCfg
+Callback functions provided by upper layer modules of the CanIf.The callback functions defined in this container are commonto all configured CAN Driver / CAN Transceiver Driver modules. 
+
+CanIfDispatchUserCtrlBusOffName  :
+CanIfDispatchUserCtrlBusOffName defines the name of <User_ControllerBusOff>. 
+CanIfDispatchUserCtrlBusOffName depends on the parameter CanIfDispatchUserCtrlBusOffUL.If CanIfDispatchUserCtrlBusOffUL equals CAN_SM the name of<User_ControllerBusOff> is fixed toCanSM_ControllerBusOff. If CanIfDispatchUserCtrlBusOffULequals CDD, the name of <User_ControllerBusOff> is selectable. 
+
+CanIfDispatchUserCtrlBusOffUL  :
+CanIfDispatchUserCtrlBusOffUL defines the upper layer (UL) module towhich the notifications of all ControllerBusOff eventsfrom the CAN Driver modules have to be routedvia <User_ControllerBusOff>. 
+The upper layer (UL) module as the provider of<User_ControllerBusOff> must always be configured. 
+
+CanIfDispatchUserCtrlModeIndicationName  :
+CanIfDispatchUserCtrlModeIndicationName defines the name of<User_ControllerModeIndication>. 
+CanIfDispatchUserCtrlModeIndicationName depends on the parameter CanIfDispatchUserCtrlModeIndicationUL.If CanIfDispatchUserCtrlModeIndicationUL equals CAN_SM the name of<User_ControllerModeIndication> is fixed toCanSM_ControllerModeIndication.If CanIfDispatchUserCtrlModeIndicationUL equals CDD, the name of<User_ControllerModeIndication> is selectable. 
+
+CanIfDispatchUserCtrlModeIndicationUL  :
+CanIfDispatchUserCtrlModeIndicationUL defines the upper layer (UL) module to whichthe notifications of all ControllerTransition events from theCAN Driver modules have to be routed via<User_ControllerModeIndication>. 
+
+CanIfDispatchUserCheckTrcvWakeFlagIndicationName  :
+This parameter defines the name of .. If CANIF_DISPATCH_USERCHECKTRCVWAKEFLAGINDICATION_UL equals CAN_SM the name of  is fixed. If it equals CDD, the name is selectable. If CANIF_PUBLIC_PN_SUPPORT equals False, this parameter shall not be configurable. 
+
+CanIfDispatchUserCheckTrcvWakeFlagIndicationUL  :
+This parameter defines the upper layer module to which the CheckTrcvWakeFlagIndication from the Driver modules have to be routed.. If CANIF_PUBLIC_PN_SUPPORT equals False, this parameter shall not be configurable. 
+
+CanIfDispatchUserClearTrcvWufFlagIndicationName  :
+This parameter defines the name of .. If CANIF_DISPATCH_USERCLEARTRCVWUFFLAGINDICATION_UL equals CAN_SM the name of  is fixed. If it equals CDD, the name is selectable. If CANIF_PUBLIC_PN_SUPPORT equals False, this parameter shall not be configurable. 
+
+CanIfDispatchUserClearTrcvWufFlagIndicationUL  :
+This parameter defines the upper layer module to which the ClearTrcvWufFlagIndication from the Driver modules have to be routed.. If CANIF_PUBLIC_PN_SUPPORT equals False, this parameter shall not be configurable. 
+
+CanIfDispatchUserConfirmPnAvailabilityName  :
+This parameter defines the name of User_ConfirmPnAvailability. If CANIF_DISPATCH_USERCONFIRMPNAVAILABILITY_UL equals CAN_SM the name of User_ConfirmPnAvailability is fixed. If it equals CDD, the name is selectable. If CANIF_PUBLIC_PN_SUPPORT equals False, this parameter shall not be configurable. 
+
+CanIfDispatchUserConfirmPnAvailabilityUL  :
+This parameter defines the upper layer module to which the ConfirmPnAvailability notification from the Driver modules have to be routed. If CANIF_PUBLIC_PN_SUPPORT equals False, this parameter shall not be configurable. 
+
+CanIfDispatchUserTrcvModeIndicationName  :
+CanIfDispatchUserTrcvModeIndicationName defines the name of <User_TrcvModeIndication>. 
+CanIfDispatchUserTrcvModeIndicationName depends on the parameter CanIfDispatchUserTrcvModeIndicationUL.If CanIfDispatchUserTrcvModeIndicationUL equals CAN_SM the name of<User_TrcvModeIndication> is fixed toCanSM_TrcvModeIndication.If CanIfDispatchUserTrcvModeIndicationUL equals CDD, the name of<User_TrcvModeIndication> is selectable. 
+
+CanIfDispatchUserTrcvModeIndicationUL  :
+CanIfDispatchUserTrcvModeIndicationUL defines the upper layer (UL) module to which thenotifications of all TransceiverTransition events from theCAN Transceiver Driver modules are routedvia <User_TrcvModeIndication>. 
+
+CanIfDispatchUserValidateWakeupEventName  :
+CanIfDispatchUserValidateWakeupEventName defines the name of <User_ValidateWakeupEvent>. 
+CanIfDispatchUserValidateWakeupEventName depends on the parameter CanIfDispatchUserValidateWakeupEventUL.If CanIfDispatchUserValidateWakeupEventUL equals ECUM the name of<User_ValidateWakeupEvent> is fixed toEcuM_ValidateWakeupEvent.If CanIfDispatchUserValidateWakeupEventUL equals CDD, the name of<User_ValidateWakeupEvent> is selectable. 
+If parameter CanIfPublicWakeupCheckValidSupport is disabled,no <User_ValidateWakeupEvent> API can be configured. 
+
+CanIfDispatchUserValidateWakeupEventUL  :
+CanIfDispatchUserValidateWakeupEventUL defines the upper layer (UL) module to whichthe notifications about positive former requested wake upsources have to be routed via <User_ValidateWakeupEvent>. 
+If parameter CanIfPublicWakeupCheckValidSupport is disabled,CanIfDispatchUserValidateWakeupEventUL cannot be configured. 
+
+CanIfTranslateTxCanIdFunc  :
+CanIfTranslateTxCanIdFunc can be used to configure the user specific CAN IDtranslation function/macro for Tx PDUs. 
+If CanIfTranslateTxCanIdFunc is disabled, the configured CAN ID (parameter CanIfTxPduCanId) will beused when transmitting a message. If it is enabled,the configured function will be called with a CAN ID and thereturned CAN ID will be used when the message is transmitted. 
+The prototype of this function must be as follows (if a macrois used it must behave accordingly): 
+Can_IdType function-name( Can_IdType CanId ) 
+Optimization Effect
+• ROM increase (code):Enabling this parameter increases the ROM consumptionof the module code. 
+• Execution time increase (code):Enabling this parameter increases the executiontime of the module code. 
+
+CanIfTranslateRxCanIdFunc  :
+CanIfTranslateRxCanIdFunc can be used to configure the user specificCAN ID translation function/macro for Rx PDUs. 
+If CanIfTranslateRxCanIdFunc is disabled, the configured CAN ID (parameter CanIfRxPduCanId) willbe expected by CanIf_RxIndication() when receiving a message.If it is enabled, CanIf_RxIndication() will call thisfunction to translate the received CAN ID into the configuredCAN ID (parameter CanIfRxPduCanId) of the corresponding Rx PDU before and use thistranslated CAN ID for software filtering. 
+The prototype of this function must be as follows (if a macrois used it must behave accordingly): 
+Can_IdType function-name( Can_IdType CanId ) 
+Optimization Effect
+• ROM increase (code):Enabling this parameter increases the ROM consumptionof the module code. 
+• Execution time increase (code):Enabling this parameter increases the execution timeof the module code. 
+
+CanIfDispatchUserSetWakeupEventName  :
+CanIfDispatchUserSetWakeupEventName defines the name of <User_SetWakeupEvent>. 
+CanIfDispatchUserSetWakeupEventName depends on the parameter CanIfDispatchUserSetWakeupEventUL.If CanIfDispatchUserSetWakeupEventUL equals ECUM the name of<User_SetWakeupEvent> is fixed to EcuM_SetWakeupEvent.If CanIfDispatchUserSetWakeupEventUL equals CDD, the name of<User_SetWakeupEvent> is selectable. 
+
+CanIfDispatchUserSetWakeupEventUL  :
+CanIfDispatchUserSetWakeupEventUL defines the upper layer (UL) module to whichthe notifications about positive former requested wake up sourceshave to be routed via <User_SetWakeupEvent>. 

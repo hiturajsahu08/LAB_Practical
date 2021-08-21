@@ -1,0 +1,102 @@
+[
+    {
+        "Name": "Development Error Detection   ",
+        "Description": " CAN064_Conf: Switches the Development Error Detection and Notification: ON or OFF. When this option is OFF code size is reduced, but no error detection is available. "
+    },
+    {
+        "Name": "Can Multiple CanIf Cbk    ",
+        "Description": " Enable the capability to manage Multiple CanIf Callback.  Note: Implementation specific parameter. Not AutoSar Required. "
+    },
+    {
+        "Name": "Provide Version Info API    ",
+        "Description": " CAN106_Conf. Switches the Can_GetVersionInfo() API: ON or OFF. When this option is ON driver supports API for getting Version information for the Driver. "
+    },
+    {
+        "Name": "Can Driver Index (0 -  255)  ",
+        "Description": " CAN320_Conf. Specifies the InstanceId of this module instance. If only one instance is present it shall have the Id 0. "
+    },
+    {
+        "Name": "Can Main Function Busoff Period (seconds) (0.001 -  65.535)    ",
+        "Description": " CAN355_Conf. This parameter describes the period for cyclic call to Can_MainFunction_Busoff. Unit is seconds. "
+    },
+    {
+        "Name": "Can Main Function Wakeup Period (seconds) (0.001 -  65.535)    ",
+        "Description": " CAN357_Conf. This parameter describes the period for cyclic call to Can_MainFunction_Wakeup. Unit is seconds. This field is editable if CanConfigSet/CanController/CanWakeupSupport is 'true'.  "
+    },
+    {
+        "Name": "Can Main Function Mode Period (seconds) (0.001 -  65.535)    ",
+        "Description": " CAN376_Conf. This parameter describes the period for cyclic call to Can_MainFunction_Mode. Unit in seconds. "
+    },
+    {
+        "Name": "Can Multiplexed Transmission    ",
+        "Description": " CAN095_Conf. Specifies if Multiplexed Transmission shall be supported: ON or OFF. Multiplex transmission means to search for a free MB, that has the same ObjectId with the one transmitted to Can_Write,if current Hth MB is busy. "
+    },
+    {
+        "Name": "Can Identical Id Cancellation    ",
+        "Description": " CAN378_Conf. Specifies if hardware cancellation with identical ID shall be supported: ON or OFF. This option enables/disables cancellation of pending PDUs with identical ID.  "
+    },
+    {
+        "Name": "Can Timeout Duration (0.001 -  65.535)    ",
+        "Description": " CAN113_Conf. Specifies the maximum time for blocking function until a timeout is detected. Unit is seconds. This Timeout is used to detect the Hardware Errors/ Production Errors. When Hardware registers like Controller Register (CCCR) or Bit Timing and Prescaler Register (NBTP) are configured, the Hardware take some time to take effect of these new settings requested. Once timeout has been occured and if hardware could not take effect of the CAN settings, then Error is reported. So this timeout is used to allow hardware to take effect of the Hardware settings. Note: In case TIMER SERVICE is not not based on a realtime counter, the value configured in CanTimeoutCycle will be used instead.  "
+    },
+    {
+        "Name": "Can Timeout Cycle (1 -  2147483647)    ",
+        "Description": " CAN113_Conf. Specifies the maximum number of cycles for a blocking function until a timeout is detected. Unit in loops. This Timeout is used to detect the Hardware Errors/ Production Errors. When Hardware registers like Controller Register (CCCR) or Bit Timing and Prescaler Register (NBTP) are configured, the Hardware take some time to take effect of these new settings requested. Once timeout has been occured and if hardware could not take effect of the CAN settings, then Error is reported. So this timeout is used to allow hardware to take effect of the Hardware settings. Note: In case TIMER SERVICE is based on a realtime counter, the value configured in CanTimeoutDuration will be used instead.  "
+    },
+    {
+        "Name": "Can Hardware Cancellation    ",
+        "Description": " CAN069_Conf. Specifies if hardware cancellation shall be supported: ON or OFF. This option activates the cancellation of MB's operation by calling Can_LLD_Cancel(). "
+    },
+    {
+        "Name": "Can L-Pdu Receive Callout Function    ",
+        "Description": " CAN434_Conf:This parameter defines the existence and the name of a callout function that is called after a successful reception of a received CAN Rx L-PDU. If this parameter is omitted no callout shall take place.  "
+    },
+    {
+        "Name": "Can L-Pdu Custom receive Callout Function    ",
+        "Description": " This parameter defines the existence and the name of a custom callout function that is called after a successful reception of a received CAN Rx L-PDU. If this parameter is omitted no callout shall take place. Note: Implementation specific parameter. Not AutoSar Required.  "
+    },
+    {
+        "Name": "Can Controller Error Notification    ",
+        "Description": " Set here the name of the Error Interrupt controller notification function. Note: Implementation specific parameter. Not AutoSar Required.  "
+    },
+    {
+        "Name": "Can RxFifo Warning Notification    ",
+        "Description": " Set here the name of the handler for RxFifo Warning notification function or NULL_PTR if disabled. Note: Implementation specific parameter. Not AutoSar Required.  "
+    },
+    {
+        "Name": "Can RxFifo Overflow Notification    ",
+        "Description": " Set here the name of the handler for RxFifo Overflow notification function or NULL_PTR if disabled. Note: Implementation specific parameter. Not AutoSar Required.  "
+    },
+    {
+        "Name": "Can RxFifo Non-Matching Filters Notification    ",
+        "Description": " This parameter defines the existence and the name of a callout function that is called after a received CAN Rx L-PDU doesn't match any of filters configured. Note: Implementation specific parameter. Not AutoSar Required.  "
+    },
+    {
+        "Name": "Can Counter ref    ",
+        "Description": " CAN431_Conf. This parameter contains a reference to the counter, which is used by the CAN driver.  "
+    },
+    {
+        "Name": "CanSupportTTCANRef    ",
+        "Description": " CAN430_Conf. The parameter refers to CanIfSupportTTCAN parameter in the CAN Interface Module configuration.The CanIfSupportTTCAN parameter defines whether TTCAN is supported.  "
+    },
+    {
+        "Name": "Can Extended ID Support    ",
+        "Description": " Enables support of Extended/Mixed mode (permit to use IDs of 29 bits length). Note: Implementation specific parameter. Not AutoSar Required.  "
+    },
+    {
+        "Name": "CanApiEnableMbAbort    ",
+        "Description": " Enables an additional API, to abort a message transmission. Based on this value a define will be generated with STD_ON or STD_OFF value: CAN_API_ENABLE_ABORT_MB. It is editable only if \"CanHardwareCancellation\" = true.  "
+    },
+    {
+        "Name": "CanEnableDualClockMode    ",
+        "Description": " Enables support for dual clock API. When this parameter is true will generate CAN_DUAL_CLOCK_MODE = STD_ON. Note: This parameter is visible only if Can.CanConfig.DualClockMode = STD_ON from Resource files.  "
+    },
+    {
+        "Name": "Can MB Count Extension Support   ",
+        "Description": " Enables support of more than 255 Can Hardware Objects. Some platforms have a bigger number of Can controllers and the sum of total MBS for all controllers is bigger than uint8 size (as HTH/HRH is specified in Autosar). This option should not be enabled for platforms that have a number of MBs smaller than 256 (summing all Can controllers from the platform). Note: Implementation specific parameter. Not AutoSar Required. "
+    },
+    {
+        "Name": "CanAbortOnlyOneMB    ",
+        "Description": " When this parameter is true only one MB will be aborted by Can_AbortMb() When this parameter is false all the associated mailboxes will be aborted when multiplex transmission is enabled Note: This parameter is enabled only if CanMultiplexedTransmission is checked.  "
+    }
+]
